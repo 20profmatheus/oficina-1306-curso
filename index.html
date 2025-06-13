@@ -3,27 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> CALCULADORA DA FÓRMULA DE BHASKARA</title>
     <link rel="stylesheet" href="style.css">
+    <title>Método de resolução de uma equação do 2ºgrau</title>
 </head>
 <body>
     <section>
-        <h1>Fórmula de Bhaskara</h1>
-        <input type="number" id="a" placeholder="Insira o valor de a da equação">
-        <input type="number" id="b" placeholder="Insira o valor de b da equação">
-        <input type="number" id="c" placeholder="Insira o valor de c da equação">
+    <h1>Fórmula de Bhaskara</h1>
+    <input type="number" id="a" placeholder="Insira o valor de a da equação">
+    <input type="number" id="b" placeholder="Insira o valor de b da equação">
+    <input type="number" id="c" placeholder="Insira o valor de c da equação">
+    
+    <button id="Calcular" onclick="calcular()">Calcular</button>
 
-        <button id="Calcular" onclick="calcular()">Calcular</button>
+    <p>O valor de x1 é de: <span id="x1"></span></p>
+    <p id="status"></p>
 
-        <p>O valor de x1 é de: <span id="x1"></span></p>
-        <p id="status"></p>
+    <p>O valor de x2 é de: <span id="x2"></span></p>
+    <p id="status"></p>
 
-         <p>O valor de x2 é de: <span id="x2"></span></p>
-        <p id="status"></p>
+    <script>
+        function calcular() {
+    var a = parseFloat(document.getElementById('a').value);
+    var b = parseFloat(document.getElementById('b').value);
+    var c = parseFloat(document.getElementById('c').value);
 
+    var delta = b * b - 4 * a * c;
+
+    if (delta < 0) {
+        document.getElementById('x1').innerHTML = "";
+        document.getElementById('x2').innerHTML = "";
+        document.getElementById('status').innerHTML = "Não existem raízes reais (delta < 0).";
+    } else {
+        var x1 = (-b + Math.sqrt(delta)) / (2 * a);
+        var x2 = (-b - Math.sqrt(delta)) / (2 * a);
+
+        document.getElementById('x1').innerHTML = x1.toFixed(2);
+        document.getElementById('x2').innerHTML = x2.toFixed(2);
+        document.getElementById('status').innerHTML = "Raízes reais encontradas com sucesso.";
+    }
+}
+
+    </script>
     </section>
+        <h2>Termo geral e fórmula de bhaskara:</h2>
     <section>
-
+            <section class="imagens">
+            <img src="/IMG/Equação do segundo grau.png" alt="Equação do segundo grau">
+            <img src="/IMG/Fórmula de bhaskara.jpg" alt="Fórmula de Bhaskara">
+            </section>
     </section>
+    <footer>
+        <h1>Projeto elaborado para fins educacionais</h1>
+        <h1>Programador: Professor Francisco Biudes</h1>
+        <h1>2025</h1>
+    </footer>
 </body>
 </html>
