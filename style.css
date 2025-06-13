@@ -104,6 +104,6 @@ span {
 footer{
     display: flex;
     flex-direction: column;
-    border-color: red;
+    border-color: gray;
     color: black;
 }
